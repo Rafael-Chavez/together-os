@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase, HOUSEHOLD_ID } from '../../config/supabase';
 import { useAuth } from '../../contexts/AuthContext';
 import './GroceryList.css';

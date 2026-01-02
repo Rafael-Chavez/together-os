@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase, HOUSEHOLD_ID } from '../../config/supabase';
 import { useAuth } from '../../contexts/AuthContext';
 import './Documents.css';
@@ -135,7 +135,7 @@ export default function Documents() {
       .remove([doc.storage_path]);
 
     if (storageError) {
-      console.error('Error deleting file from storage:', error);
+      console.error('Error deleting file from storage:', storageError);
     }
 
     // Delete from database
