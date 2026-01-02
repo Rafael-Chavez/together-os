@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import {
   signInWithEmailAndPassword,
   signOut as firebaseSignOut,
@@ -54,13 +54,38 @@ export function AuthProvider({ children }) {
 
       if (user) {
         // Fetch user profile from Supabase
-        const { data } = await supabase
+        const { data, error } = await supabase
           .from('users')
           .select('*')
           .eq('firebase_uid', user.uid)
           .single();
 
-        setUserProfile(data);
+        if (error) {
+          console.error('Error fetching user profile:', error);
+        }
+
+        // If user doesn't exist in Supabase, create them
+        if (!data) {
+          console.log('User not found in Supabase, creating...');
+          const { data: newUser, error: insertError } = await supabase
+            .from('users')
+            .insert({
+              firebase_uid: user.uid,
+              email: user.email,
+              display_name: user.displayName || user.email.split('@')[0],
+              household_id: HOUSEHOLD_ID,
+            })
+            .select()
+            .single();
+
+          if (insertError) {
+            console.error('Error creating user:', insertError);
+          } else {
+            setUserProfile(newUser);
+          }
+        } else {
+          setUserProfile(data);
+        }
       } else {
         setUserProfile(null);
       }
