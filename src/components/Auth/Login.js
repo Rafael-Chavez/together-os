@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import './Login.css';
 
 export default function Login() {
@@ -26,6 +27,9 @@ export default function Login() {
 
   return (
     <div className="login-container">
+      <div className="theme-toggle-wrapper">
+        <ThemeToggle />
+      </div>
       <div className="login-card">
         <h1>Together</h1>
         <p className="text-secondary text-small">Your household, organized</p>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import Tasks from '../Tasks/Tasks';
 import Obligations from '../Obligations/Obligations';
 import Notes from '../Notes/Notes';
@@ -23,6 +24,7 @@ export default function Dashboard() {
         <div className="header-content">
           <h1>Together</h1>
           <div className="header-actions">
+            <ThemeToggle />
             <span className="user-name">{userProfile?.display_name}</span>
             <button onClick={signOut} className="btn-secondary btn-small">
               Sign out
