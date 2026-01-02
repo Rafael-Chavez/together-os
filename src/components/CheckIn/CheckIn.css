@@ -1,0 +1,36 @@
+.week-label {
+  font-weight: 500;
+}
+
+.checkin-form {
+  margin-bottom: var(--space-lg);
+}
+
+.checkin-form textarea {
+  min-height: 200px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.partner-checkin {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+}
+
+.partner-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.partner-content {
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+
+.partner-time {
+  text-align: right;
+}
