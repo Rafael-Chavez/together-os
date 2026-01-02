@@ -5,6 +5,8 @@ import Tasks from '../Tasks/Tasks';
 import Obligations from '../Obligations/Obligations';
 import Notes from '../Notes/Notes';
 import CheckIn from '../CheckIn/CheckIn';
+import GroceryList from '../GroceryList/GroceryList';
+import Documents from '../Documents/Documents';
 import './Dashboard.css';
 
 export default function Dashboard() {
@@ -13,8 +15,10 @@ export default function Dashboard() {
 
   const tabs = [
     { id: 'tasks', label: 'Tasks' },
+    { id: 'grocery', label: 'Grocery' },
     { id: 'obligations', label: 'Obligations' },
     { id: 'notes', label: 'Notes' },
+    { id: 'documents', label: 'Documents' },
     { id: 'checkin', label: 'Check-in' },
   ];
 
@@ -47,8 +51,10 @@ export default function Dashboard() {
 
       <main className="dashboard-main container">
         {activeTab === 'tasks' && <Tasks />}
+        {activeTab === 'grocery' && <GroceryList />}
         {activeTab === 'obligations' && <Obligations />}
         {activeTab === 'notes' && <Notes />}
+        {activeTab === 'documents' && <Documents />}
         {activeTab === 'checkin' && <CheckIn />}
       </main>
     </div>

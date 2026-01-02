@@ -1,0 +1,101 @@
+.grocery-add-form {
+  margin-bottom: var(--space-lg);
+}
+
+.add-form-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: var(--space-sm);
+}
+
+@media (max-width: 480px) {
+  .add-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grocery-input {
+  flex: 1;
+}
+
+.category-select {
+  width: auto;
+  min-width: 140px;
+}
+
+.grocery-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.grocery-item {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  transition: all 0.2s ease;
+}
+
+.grocery-item.checked {
+  opacity: 0.6;
+}
+
+.grocery-checkbox {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.grocery-content {
+  flex: 1;
+}
+
+.grocery-name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 1rem;
+}
+
+.grocery-item.checked .grocery-name {
+  text-decoration: line-through;
+}
+
+.category-emoji {
+  font-size: 1.25rem;
+}
+
+.grocery-delete {
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.grocery-delete:hover {
+  color: var(--danger);
+}
+
+.checked-section {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border);
+}
+
+.checked-section h3 {
+  margin-bottom: var(--space-md);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
